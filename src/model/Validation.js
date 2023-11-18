@@ -8,7 +8,7 @@ class Validation {
             Validation.isCheckZeroStart(input);
             Validation.isCheckDuplicatedNumber(input);
         } catch (error) {
-            console.log(error.message);
+            throw new Error(error.message);
         }
     }
 
