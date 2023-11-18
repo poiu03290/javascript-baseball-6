@@ -12,6 +12,12 @@ const InputView = {
         validation.inputValidate(input);
 
         return input;
+    },
+
+    async readReGame() {
+        const input = await Console.readLineAsync(`${MESSAGE.REGAME}`);
+
+        return input;
     }
 }
 
