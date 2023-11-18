@@ -7,30 +7,29 @@ import MESSAGE from '../data/message.js';
 class GameController {
     constructor() {}
 
-    start() {
+    async start() {
         OutputView.print(MESSAGE.START);
-        this.generate();
+        await this.generate();
     }
 
-    generate() {
+    async generate() {
         const game = new Game();
         this.answer = game.generateAnswer();
-        OutputView.print(this.answer);
-        this.userInput();
+        await this.userInput();
     }
 
     async userInput() {
         this.tries = await InputView.readTries();
-        this.compare();
+        await this.compare();
     }
 
-    compare() {
+    async compare() {
         const game = new Game();
         const { strike, ball } = game.compareAnswer(this.tries, this.answer);
         this.result(strike, ball);
     }
 
-    result(strike, ball) {
+    async result(strike, ball) {
         const game = new Game();
         const result = game.combineResult(strike, ball);
         OutputView.print(result);
