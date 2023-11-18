@@ -14,6 +14,21 @@ class Game {
 
         return computer;
     }
+
+    compareAnswer(tries, answer) {
+        let strike = 0;
+        let ball = 0;
+        
+        for(let i = 0; i < tries.length; i++) {
+            if(+tries[i] === +answer[i]) {
+                strike++
+            } else if(answer.includes(+tries[i])) {
+                ball++
+            }
+        }
+
+        return { strike, ball };
+    }
 }
 
 export default Game;

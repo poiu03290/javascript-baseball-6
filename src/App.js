@@ -7,11 +7,16 @@ import MESSAGE from './data/message.js';
 class App {
   async play() {
     OutputView.print(MESSAGE.START);
+
+    const game = new Game();
+    const answer = game.generateAnswer();
+    OutputView.print(answer);
+
     const tries = await InputView.readTries();
     OutputView.print(tries);
-    const game = new Game();
-    const generatedAnswer = game.generateAnswer();
-    OutputView.print(generatedAnswer);
+
+    const { strike, ball } = game.compareAnswer(tries, answer);
+    console.log(strike, ball);
   }
 }
 
