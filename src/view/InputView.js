@@ -9,13 +9,16 @@ const InputView = {
         const input = await Console.readLineAsync(`${MESSAGE.TRIES}`);
 
         const validation = new Validation();
-        validation.inputValidate(input);
+        validation.triesValidate(input);
 
         return input;
     },
 
     async readReGame() {
         const input = await Console.readLineAsync(`${MESSAGE.REGAME}`);
+
+        const validation = new Validation();
+        validation.reGameValidate(input);
 
         return input;
     }
