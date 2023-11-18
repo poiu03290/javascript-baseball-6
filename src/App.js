@@ -1,16 +1,17 @@
 import Game from './model/Game.js';
 import InputView from './view/inputView.js';
+import OutputView from './view/OutputView.js';
 
 import MESSAGE from './data/message.js';
 
 class App {
   async play() {
-    console.log(MESSAGE.START);
+    OutputView.print(MESSAGE.START);
     const tries = await InputView.readTries();
-    console.log(tries);
+    OutputView.print(tries);
     const game = new Game();
     const generatedAnswer = game.generateAnswer();
-    console.log(generatedAnswer);
+    OutputView.print(generatedAnswer);
   }
 }
 
