@@ -34,12 +34,12 @@ class GameController {
         const result = game.combineResult(strike, ball);
         OutputView.print(result);
         if(result === '3스트라이크') {
-            return this.restart();
+            return this.reGame();
         } 
         this.userInput();
     }
 
-    async restart() {
+    async reGame() {
         OutputView.print(MESSAGE.ANSWER);
         const input = await InputView.readReGame();
         const game = new Game();
